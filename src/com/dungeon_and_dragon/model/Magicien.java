@@ -1,31 +1,31 @@
-package com.company;
+package com.dungeon_and_dragon.model;
 
-public class Guerrier {
+public class Magicien {
 
-    String name;
-    String img;
-    int hp;
-    int strengh;
+    private String name;
+    private String img;
+    private int hp;
+    private int strength;
 
-    public Guerrier() {
+    public Magicien() {
         name = "Inconnu";
         img = "Inconnu";
-        hp = 5;
-        strengh = 5;
+        hp = 3;
+        strength = 8;
     }
 
-    public Guerrier(String nameChoose) {
+    public Magicien(String nameChoose) {
         name = nameChoose;
         img = "Inconnu";
-        hp = 5;
-        strengh = 5;
+        hp = 3;
+        strength = 8;
     }
 
-    public Guerrier(String nameChoose, String imgChoose, int hpChoose, int strenghChoose) {
+    public Magicien(String nameChoose, String imgChoose, int hpChoose, int strengthChoose) {
         name = nameChoose;
         img = imgChoose;
         hp = hpChoose;
-        strengh = strenghChoose;
+        strength = strengthChoose;
     }
 
     /**
@@ -34,8 +34,10 @@ public class Guerrier {
      * */
     public String toString(){
         return
-                "Nom du Guerrier : " +  this.name + " avec cette image " + this.img + " et " +
-                        + this.hp + "points de vie : " + " avec " + this.strengh + " de force";
+                "Nom du Magicien : " +  this.name+ " | " +
+                        "l'image : " + this.img+ " | " +
+                        "points de vie : " + this.hp + " | " +
+                        "force : " + this.strength + " | ";
     }
 
     /**
@@ -83,18 +85,19 @@ public class Guerrier {
         this.hp = hp;
     }
 
+
     /**
      * getStrengh
-     * @return strengh
+     * @return strength
      */
-    public int getStrengh() {
-        return strengh;
+    public int getStrength() {
+        return strength;
     }
 
     /**
-     * setStrengh
+     * setStrength
      */
-    public void setStrengh(int strengh) {
-        this.strengh = strengh;
+    public void setStrength(int strength) {
+        this.strength = strength;
     }
 }
