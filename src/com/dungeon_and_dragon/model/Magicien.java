@@ -3,27 +3,23 @@ package com.dungeon_and_dragon.model;
 public class Magicien {
 
     private String name;
-    private String img;
     private int hp;
     private int strength;
 
     public Magicien() {
         name = "Inconnu";
-        img = "Inconnu";
         hp = 3;
         strength = 8;
     }
 
     public Magicien(String nameChoose) {
         name = nameChoose;
-        img = "Inconnu";
         hp = 3;
         strength = 8;
     }
 
-    public Magicien(String nameChoose, String imgChoose, int hpChoose, int strengthChoose) {
+    public Magicien(String nameChoose, int hpChoose, int strengthChoose) {
         name = nameChoose;
-        img = imgChoose;
         hp = hpChoose;
         strength = strengthChoose;
     }
@@ -34,10 +30,8 @@ public class Magicien {
      * */
     public String toString(){
         return
-                "Nom du Magicien : " +  this.name+ " | " +
-                        "l'image : " + this.img+ " | " +
-                        "points de vie : " + this.hp + " | " +
-                        "force : " + this.strength + " | ";
+                "Nom du Magicien : " +  this.name + " avec " +
+                        + this.hp + " points de vie et avec " + this.strength + " de force";
     }
 
     /**
@@ -53,21 +47,6 @@ public class Magicien {
      */
     public void setName(String name) {
         this.name = name;
-    }
-
-    /**
-     * getImg
-     * @return img
-     */
-    public String getImg() {
-        return img;
-    }
-
-    /**
-     * setImg
-     */
-    public void setImg(String img) {
-        this.img = img;
     }
 
     /**

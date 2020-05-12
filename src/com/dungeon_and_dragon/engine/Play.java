@@ -4,21 +4,22 @@ import java.util.Scanner;
 
 public class Play {
 
-    int plateau = 64;
+   private final int plateau = 64;
 
-    public void mouve() {
+    public void moove() {
         boolean test = false;
         int total = 0;
 
         while (!test) {
             Scanner play = new Scanner(System.in);
-            System.out.print("Lancez le dé ? :");
+            System.out.print("\nLancez le dé ? :");
             String playerChoose = play.nextLine();
 
             if (playerChoose.equals("o")) {
                 int throwDice = randomNumber();
+                System.out.println("\nVous avez fait un : " + throwDice );
                 total += throwDice;
-                System.out.println(total);
+                System.out.println("Vous êtes sur la case : "+ total);
 
             } else {
                 Scanner rePlay = new Scanner(System.in);
@@ -30,24 +31,16 @@ public class Play {
                 }
             }
 
-            if (total > plateau) {
+            if (total >= plateau) {
                 System.out.println("BRAVO GG FOR THE WIN !");
                 test = true;
-
             }
         }
     }
 
-
-
-
-
     public int randomNumber() {
-        int min = 1;
-        int max = 6;
+        int random_int = 1 + (int) (Math.random() * 6);
 
-        int random_int = (int)(Math.random() * (max - min + 1) + min);
-        System.out.println(random_int);
         return random_int;
     }
 }

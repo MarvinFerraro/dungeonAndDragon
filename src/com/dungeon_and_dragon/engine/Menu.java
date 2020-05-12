@@ -31,6 +31,7 @@ public class Menu {
                 case "Echap":
                     System.out.println("Vous avez quitté le jeu ! Noob");
                     isReady = true;
+                    break;
 
                 default:
                     System.out.println("Votre choix n'est pas possible.");
@@ -41,7 +42,7 @@ public class Menu {
                 System.out.print("Veuillez rentrer 'START' pour commencer : ");
 
                 String printStart = startScanner.nextLine().toUpperCase();
-                System.out.println("Le jeu à débuté");
+                System.out.println("\nLe jeu à débuté");
             }
         }
     }
@@ -57,22 +58,14 @@ public class Menu {
             Scanner inputName = new Scanner(System.in);
             System.out.print("Rentrez son nom : ");
             String nameChoose = inputName.nextLine();
-            w1.setName(nameChoose);
-
-            /*
-             * Set du Img
-             **/
-            Scanner inputImg = new Scanner(System.in);
-            System.out.print("Rentrez un texte d'img ?... : ");
-            String imgChoose = inputImg.nextLine();
-            w1.setImg(imgChoose);
+            w1.setName(inputName.nextLine());
 
             /*
              * Set du Hp
              **/
             Scanner inputHp = new Scanner(System.in);
             System.out.print("Rentrez sa vie (5-10) : ");
-            int hpChoose = inputImg.nextInt();
+            int hpChoose = inputHp.nextInt();
             w1.setHp(hpChoose);
 
 
@@ -87,6 +80,7 @@ public class Menu {
             //Affichage des Infos Modifiées
             System.out.println(w1.toString());
             return w1;
+
         } else {
 
             Magicien w1 = new Magicien();
@@ -100,19 +94,11 @@ public class Menu {
             w1.setName(nameChoose);
 
             /*
-             * Set du Img
-             **/
-            Scanner inputImg = new Scanner(System.in);
-            System.out.print("Rentrez un texte d'img ?... : ");
-            String imgChoose = inputImg.nextLine();
-            w1.setImg(imgChoose);
-
-            /*
              * Set du Hp
              **/
             Scanner inputHp = new Scanner(System.in);
             System.out.print("Rentrez sa vie (3-6) : ");
-            int hpChoose = inputImg.nextInt();
+            int hpChoose = inputHp.nextInt();
             w1.setHp(hpChoose);
 
 
