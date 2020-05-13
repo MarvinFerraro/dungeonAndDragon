@@ -1,7 +1,8 @@
 package com.dungeon_and_dragon.engine;
 
-import com.dungeon_and_dragon.model.Guerrier;
-import com.dungeon_and_dragon.model.Magicien;
+import com.dungeon_and_dragon.model.Warrior;
+import com.dungeon_and_dragon.model.Hero;
+import com.dungeon_and_dragon.model.Wizard;
 
 import java.util.Scanner;
 
@@ -19,13 +20,17 @@ public class Menu {
                 case "Guerrier":
                     System.out.println("Vous avez choisi le : " + playerChoose + " qui va casser des bouches");
                     isReady = true;
-                    Guerrier g1 = (Guerrier) created(playerChoose);
+                    Hero heroW = new Warrior();
+                    createHero(heroW);
+                    System.out.println(heroW.toString());
                     break;
 
                 case "Magicien":
                     System.out.println("Vous avez choisi le : " + "'" + playerChoose + "'" + " descendant d'ElChapo");
                     isReady = true;
-                    Magicien m1 = (Magicien) created(playerChoose);
+                    Hero heroM = new Wizard();
+                    createHero(heroM);
+                    System.out.println(heroM.toString());
                     break;
 
                 case "Echap":
@@ -47,74 +52,49 @@ public class Menu {
         }
     }
 
-    public Object created(String charType) {
+    public Hero createHero(Hero hero) {
 
-        if (charType.equals("Guerrier")) {
-            Guerrier w1 = new Guerrier();
+        /*
+         * Set du Name
+         **/
+        Scanner inputName = new Scanner(System.in);
+        System.out.print("Rentrez son nom : ");
+        String nameChoose = inputName.nextLine();
+        hero.setName(nameChoose);
 
-            /*
-             * Set du Name
-             **/
-            Scanner inputName = new Scanner(System.in);
-            System.out.print("Rentrez son nom : ");
-            String nameChoose = inputName.nextLine();
-            w1.setName(inputName.nextLine());
+        /*
+         * Set du Hp
+         **/
+        Scanner inputHp = new Scanner(System.in);
+        System.out.print("Rentrez sa vie (5-10) : ");
+        int hpChoose = inputHp.nextInt();
+        hero.setHp(hpChoose);
 
-            /*
-             * Set du Hp
-             **/
-            Scanner inputHp = new Scanner(System.in);
-            System.out.print("Rentrez sa vie (5-10) : ");
-            int hpChoose = inputHp.nextInt();
-            w1.setHp(hpChoose);
+        /*
+         * Set du strength
+         **/
+        Scanner inputStrength = new Scanner(System.in);
+        System.out.print("Rentrez sa force (5-10) : ");
+        int strengthChoose = inputStrength.nextInt();
+        hero.setStrength(strengthChoose);
 
+        /*
+         * Set du RightHand
+         **/
+        Scanner inputRightHand = new Scanner(System.in);
+        System.out.print("Rentrez une arme main droite : ");
+        String RightHandChoose = inputRightHand.nextLine();
+        hero.setRightHand(RightHandChoose);
 
-            /*
-             * Set du strength
-             **/
-            Scanner inputStrength = new Scanner(System.in);
-            System.out.print("Rentrez sa force (5-10) : ");
-            int strengthChoose = inputStrength.nextInt();
-            w1.setStrength(strengthChoose);
+        /*
+         * Set du inputLeftHand
+         **/
+        Scanner inputLeftHand = new Scanner(System.in);
+        System.out.print("Rentrez une arme main gauche : ");
+        String LeftHandChoose = inputLeftHand.nextLine();
+        hero.setLeftHand(LeftHandChoose);
 
-            //Affichage des Infos Modifiées
-            System.out.println(w1.toString());
-            return w1;
-
-        } else {
-
-            Magicien w1 = new Magicien();
-
-            /*
-             * Set du Name
-             **/
-            Scanner inputName = new Scanner(System.in);
-            System.out.print("Rentrez son nom : ");
-            String nameChoose = inputName.nextLine();
-            w1.setName(nameChoose);
-
-            /*
-             * Set du Hp
-             **/
-            Scanner inputHp = new Scanner(System.in);
-            System.out.print("Rentrez sa vie (3-6) : ");
-            int hpChoose = inputHp.nextInt();
-            w1.setHp(hpChoose);
-
-
-            /*
-             * Set du strength
-             **/
-            Scanner inputStrength = new Scanner(System.in);
-            System.out.print("Rentrez sa force (8-15) : ");
-            int strengthChoose = inputStrength.nextInt();
-            w1.setStrength(strengthChoose);
-
-            //Affichage des Infos Modifiées
-            System.out.println(w1.toString());
-            return w1;
-        }
-
-
+        return hero;
     }
+
 }

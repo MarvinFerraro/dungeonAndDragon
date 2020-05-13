@@ -4,12 +4,12 @@ import java.util.Scanner;
 
 public class Play {
 
-   private final int plateau = 64;
+   private final int board = 64;
 
     public void moove() {
         boolean test = false;
-        int total = 0;
-
+        int total = 1;
+        System.out.println("Case de départ est de 1");
         while (!test) {
             Scanner play = new Scanner(System.in);
             System.out.print("\nLancez le dé ? :");
@@ -31,7 +31,7 @@ public class Play {
                 }
             }
 
-            if (total >= plateau) {
+            if (total >= board) {
                 System.out.println("BRAVO GG FOR THE WIN !");
                 test = true;
             }
@@ -40,7 +40,7 @@ public class Play {
 
     public int randomNumber() {
         int random_int = 1 + (int) (Math.random() * 6);
-
         return random_int;
     }
 }
+
