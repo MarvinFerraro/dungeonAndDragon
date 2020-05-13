@@ -1,8 +1,8 @@
 package com.dungeon_and_dragon.engine;
 
-import com.dungeon_and_dragon.model.Warrior;
-import com.dungeon_and_dragon.model.Hero;
-import com.dungeon_and_dragon.model.Wizard;
+import com.dungeon_and_dragon.characters.Warrior;
+import com.dungeon_and_dragon.characters.Hero;
+import com.dungeon_and_dragon.characters.Wizard;
 
 import java.util.Scanner;
 
@@ -52,7 +52,7 @@ public class Menu {
         }
     }
 
-    public Hero createHero(Hero hero) {
+    public void createHero(Hero hero) {
 
         /*
          * Set du Name
@@ -94,7 +94,6 @@ public class Menu {
         String LeftHandChoose = inputLeftHand.nextLine();
         hero.setLeftHand(LeftHandChoose);
 
-        return hero;
     }
 
 }

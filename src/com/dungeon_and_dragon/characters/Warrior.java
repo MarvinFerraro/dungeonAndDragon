@@ -1,4 +1,4 @@
-package com.dungeon_and_dragon.model;
+package com.dungeon_and_dragon.characters;
 
 public class Warrior extends Hero{
 

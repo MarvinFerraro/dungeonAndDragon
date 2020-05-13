@@ -1,6 +1,6 @@
-package com.dungeon_and_dragon.model;
+package com.dungeon_and_dragon.characters;
 
-public class Hero {
+public abstract class Hero {
 
     protected String name;
     protected int hp;
@@ -10,14 +10,14 @@ public class Hero {
 
     public Hero() {
         name = "Inconnu";
-        hp = 10;
-        strength = 20;
+        hp = 0;
+        strength = 0;
     }
 
     public Hero(String nameChoose) {
         name = nameChoose;
-        hp = 10;
-        strength = 20;
+        hp = 0;
+        strength = 0;
     }
 
     public Hero(String nameChoose, int hpChoose, int strengthChoose) {
