@@ -4,19 +4,34 @@ public class Wizard extends Hero {
 
     public Wizard() {
         super("Inconnu",3,8);
+        this.type = "Wizard";
+        this.lifeMin = 3;
+        this.lifeMax = 6;
+        this.strengthMin = 8;
+        this.strengthMax = 15;
     }
 
-    public Wizard(String nameChoose) {
-        super(nameChoose,3,8);
+    public Wizard(String name) {
+        super(name,3,8);
+        this.type = "Wizard";
+        this.lifeMin = 3;
+        this.lifeMax = 6;
+        this.strengthMin = 8;
+        this.strengthMax = 15;
     }
 
-    public Wizard(String nameChoose, int hpChoose, int strengthChoose) {
-        super();
+    public Wizard(String name, int hp, int strength) {
+        super(name, hp, strength);
+        this.type = "Wizard";
+        this.lifeMin = 3;
+        this.lifeMax = 6;
+        this.strengthMin = 8;
+        this.strengthMax = 15;
     }
 
     /**
      * toString
-     * @return name, img, hp, strengh
+     * @return name, hp, strengh
      */
     public String toString() {
         return

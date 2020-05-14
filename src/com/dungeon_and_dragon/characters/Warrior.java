@@ -4,14 +4,29 @@ public class Warrior extends Hero{
 
     public Warrior() {
         super("Inconnu",5,5);
+        this.type = "Warrior";
+        this.lifeMin = 5;
+        this.lifeMax = 10;
+        this.strengthMin = 5;
+        this.strengthMax = 10;
     }
 
     public Warrior(String nameChoose) {
         super(nameChoose,5,5);
+        this.type = "Warrior";
+        this.lifeMin = 5;
+        this.lifeMax = 10;
+        this.strengthMin = 5;
+        this.strengthMax = 10;
     }
 
-    public Warrior(String nameChoose, int hpChoose, int strengthChoose) {
-        super();
+    public Warrior(String name, int hp, int strength) {
+        super(name, hp,strength);
+        this.type = "Warrior";
+        this.lifeMin = 5;
+        this.lifeMax = 10;
+        this.strengthMin = 5;
+        this.strengthMax = 10;
     }
 
     /**

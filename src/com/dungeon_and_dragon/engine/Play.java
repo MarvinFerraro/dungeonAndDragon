@@ -12,6 +12,7 @@ public class Play {
         boolean test = false;
         int currentPos = 1;
         System.out.println("Case de départ est de 1");
+
         while (!test) {
             Scanner play = new Scanner(System.in);
             System.out.print("\nLancez le dé ? :");
@@ -53,7 +54,7 @@ public class Play {
         pos += dice;
 
         if (pos > board) {
-            throw  new OutofBoardException();
+            throw new OutofBoardException();
         } else {
             return pos;
         }
