@@ -1,7 +1,6 @@
 package com.dungeon_and_dragon.engine;
 
 import com.dungeon_and_dragon.exception.OutofBoardException;
-
 import java.util.Scanner;
 
 public class Play {

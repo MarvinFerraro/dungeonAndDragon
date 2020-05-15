@@ -64,13 +64,12 @@ public class Menu {
             System.out.print("Rentrez son nom : ");
             String nameChoose = inputName.nextLine();
 
-            if (nameChoose !=null && !nameChoose.isEmpty()) {
+            if (nameChoose != null && !nameChoose.isEmpty()) {
                 hero.setName(nameChoose);
                 inputNameBool = true;
             } else {
                 System.out.println("Le nom n'est pas valide");
             }
-
         }
 
         /*
