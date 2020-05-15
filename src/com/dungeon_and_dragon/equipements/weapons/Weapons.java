@@ -20,4 +20,31 @@ public abstract class Weapons {
         return "Nom de l'arme : " + this.name +
                 "\n Augmentation de l'arme : " + this.addStrength + " d'attaque en plus.";
     }
+
+    /**
+     * getName
+     *
+     * @return name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * getAddStrength
+     *
+     * @return addStrength
+     */
+    public int getAddStrength() {
+        return addStrength;
+    }
+
+    /**
+     * getType
+     *
+     * @return type
+     */
+    public String getType() {
+        return type;
+    }
 }

@@ -5,7 +5,8 @@ import java.util.regex.*;
 public abstract class Hero {
 
     protected String name;
-    protected int hp, strength;
+    protected int hp;
+    protected int strength;
     protected String leftHand, rightHand;
     protected String type;
 
@@ -15,7 +16,7 @@ public abstract class Hero {
     protected int strengthMax;
 
     public Hero() {
-        this("Inconnu", 0, 0);
+        this("Inconnu");
     }
 
     public Hero(String name) {

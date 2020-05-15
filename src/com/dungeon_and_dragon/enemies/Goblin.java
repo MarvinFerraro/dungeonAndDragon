@@ -3,10 +3,10 @@ package com.dungeon_and_dragon.enemies;
 public class Goblin extends Vilain {
 
     public Goblin() {
-        super("Gobelin",6,1);
+        this("Gobeblin", 6,1); //Appel le constructeur Goblin(full Parametre)
     }
 
     public Goblin(String name, int hp, int strength) {
-        super(name,hp,strength);
+        super(name,hp,strength, "Goblin"); // Appel le constructeur parent
     }
 }

@@ -3,25 +3,15 @@ package com.dungeon_and_dragon.characters;
 public class Warrior extends Hero{
 
     public Warrior() {
-        super("Inconnu",5,5);
-        this.type = "Warrior";
-        this.lifeMin = 5;
-        this.lifeMax = 10;
-        this.strengthMin = 5;
-        this.strengthMax = 10;
+        this("Inconnu");
     }
 
     public Warrior(String nameChoose) {
-        super(nameChoose,5,5);
-        this.type = "Warrior";
-        this.lifeMin = 5;
-        this.lifeMax = 10;
-        this.strengthMin = 5;
-        this.strengthMax = 10;
+        this(nameChoose, 5 ,5);
     }
 
     public Warrior(String name, int hp, int strength) {
-        super(name, hp,strength);
+        super(name, hp ,strength);
         this.type = "Warrior";
         this.lifeMin = 5;
         this.lifeMax = 10;

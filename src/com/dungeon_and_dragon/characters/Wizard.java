@@ -3,21 +3,11 @@ package com.dungeon_and_dragon.characters;
 public class Wizard extends Hero {
 
     public Wizard() {
-        super("Inconnu",3,8);
-        this.type = "Wizard";
-        this.lifeMin = 3;
-        this.lifeMax = 6;
-        this.strengthMin = 8;
-        this.strengthMax = 15;
+        this("Inconnu");
     }
 
     public Wizard(String name) {
-        super(name,3,8);
-        this.type = "Wizard";
-        this.lifeMin = 3;
-        this.lifeMax = 6;
-        this.strengthMin = 8;
-        this.strengthMax = 15;
+        this(name, 5 ,5);
     }
 
     public Wizard(String name, int hp, int strength) {

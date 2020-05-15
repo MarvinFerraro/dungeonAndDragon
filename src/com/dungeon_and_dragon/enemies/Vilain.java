@@ -4,17 +4,18 @@ public abstract class Vilain {
 
     protected String name;
     protected int hp, strength;
+    protected String type;
 
     public Vilain() {
-        this("Inconnu",0,0);
+        this("Inconnu",0,0, "Vilain");
 
     }
 
-    public Vilain(String name, int hp, int strength) {
-
+    public Vilain(String name, int hp, int strength, String type) {
         this.name = name;
         this.hp = hp;
         this.strength = strength;
+        this.type = "Vilain";
     }
 
     /**
