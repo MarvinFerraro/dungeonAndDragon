@@ -7,7 +7,7 @@ import java.util.regex.*;
 
 public class Menu {
 
-    public void choose() {
+    public Hero choose() {
         boolean isReady = false;
 
         while (!isReady) {
@@ -22,7 +22,7 @@ public class Menu {
                     Hero heroW = new Warrior();
                     createHero(heroW);
                     System.out.println(heroW.toString());
-                    break;
+                    return heroW;
 
                 case "Magicien":
                     System.out.println("Vous avez choisi le : " + "'" + playerChoose + "'" + " descendant d'ElChapo");
@@ -30,7 +30,7 @@ public class Menu {
                     Hero heroM = new Wizard();
                     createHero(heroM);
                     System.out.println(heroM.toString());
-                    break;
+                    return heroM;
 
                 case "Echap":
                     System.out.println("Vous avez quitté le jeu ! Noob");
@@ -49,6 +49,7 @@ public class Menu {
                 System.out.println("\nLe jeu à débuté");
             }
         }
+        return null;
     }
 
     public Hero createHero(Hero hero) {
@@ -59,7 +60,7 @@ public class Menu {
          * Set du Name
          **/
         boolean inputNameBool = false;
-        while(!inputNameBool) {
+        while (!inputNameBool) {
             Scanner inputName = new Scanner(System.in);
             System.out.print("Rentrez son nom : ");
             String nameChoose = inputName.nextLine();
@@ -178,8 +179,8 @@ public class Menu {
             String rightHandChoose = inputRightHand.nextLine();
 //
 //            if (Pattern.matches("[a-zA-z]", rightHandChoose)) {
-                hero.setRightHand(rightHandChoose);
-                inputRightHandBool = true;
+            hero.setRightHand(rightHandChoose);
+            inputRightHandBool = true;
 //            } else {
 //                System.out.print("Ce n'est pas une arme\n");
 //            }
@@ -195,8 +196,8 @@ public class Menu {
             String leftHandChoose = inputLeftHand.nextLine();
 
 //            if (Pattern.matches("[a-zA-z]", leftHandChoose)) {
-                hero.setLeftHand(leftHandChoose);
-                inputLeftHandBool = true;
+            hero.setLeftHand(leftHandChoose);
+            inputLeftHandBool = true;
 //            } else {
 //                System.out.print("Ce n'est pas une arme\n");
 //            }

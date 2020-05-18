@@ -1,6 +1,9 @@
 package com.dungeon_and_dragon.equipements.weapons;
 
-public abstract class Weapons {
+import com.dungeon_and_dragon.engine.BoardCase;
+import com.dungeon_and_dragon.engine.Event;
+
+public abstract class Weapons implements Event {
 
     protected String name;
     protected int addStrength;
@@ -16,10 +19,10 @@ public abstract class Weapons {
         this.type = "Weapon";
     }
 
-    public String toString() {
-        return "Nom de l'arme : " + this.name +
-                "\n Augmentation de l'arme : " + this.addStrength + " d'attaque en plus.";
-    }
+//    public String toString() {
+//        return "Nom de l'arme : " + this.name +
+//                "\nAugmentation de l'arme : " + this.addStrength + " d'attaque en plus.";
+//    }
 
     /**
      * getName

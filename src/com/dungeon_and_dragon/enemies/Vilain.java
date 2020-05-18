@@ -1,13 +1,16 @@
 package com.dungeon_and_dragon.enemies;
 
-public abstract class Vilain {
+import com.dungeon_and_dragon.engine.BoardCase;
+import com.dungeon_and_dragon.engine.Event;
+
+public abstract class Vilain extends BoardCase implements Event {
 
     protected String name;
     protected int hp, strength;
     protected String type;
 
     public Vilain() {
-        this("Inconnu",0,0, "Vilain");
+        this("Inconnu", 0, 0, "Vilain");
 
     }
 
@@ -24,7 +27,7 @@ public abstract class Vilain {
      * @return Object String
      */
     public String toString() {
-        return "Nom : " + this.name + "\nPoints de vie : "+ this.hp + "\nForce d'attaque : " + this.strength;
+        return "Nom : " + this.name + "\nPoints de vie : " + this.hp + "\nForce d'attaque : " + this.strength;
     }
 
     /**
@@ -40,7 +43,7 @@ public abstract class Vilain {
      * setName
      */
     public void setName(String name) {
-        if (name != null && !name.isEmpty()){
+        if (name != null && !name.isEmpty()) {
             this.name = name;
         } else {
             System.out.println("Pas de valeur nul!");

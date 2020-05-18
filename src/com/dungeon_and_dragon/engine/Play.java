@@ -1,16 +1,21 @@
 package com.dungeon_and_dragon.engine;
 
+import com.dungeon_and_dragon.characters.Hero;
 import com.dungeon_and_dragon.exception.OutofBoardException;
+
 import java.util.Scanner;
 
 public class Play {
 
-   private final int board = 64;
+    private final int board = 64;
 
-    public void move() {
+    public void move(Hero h) {
+        BoardCase c = new BoardCase();
+        c.fill();
+
         boolean test = false;
-        int currentPos = 1;
-        System.out.println("Case de départ est de 1");
+        int currentPos = 0;
+        System.out.println("Case de départ est de 0");
 
         while (!test) {
             Scanner play = new Scanner(System.in);
@@ -19,14 +24,24 @@ public class Play {
 
             if (playerChoose.equals("o")) {
                 int throwDice = randomNumber();
-                System.out.println("\nVous avez fait un : " + throwDice );
+                System.out.println("\nVous avez fait un : " + throwDice);
 
                 try {
                     currentPos = testmove(currentPos, throwDice, board);
-                } catch (OutofBoardException e)  {
+                } catch (OutofBoardException e) {
                     e.printStackTrace();
                 }
                 System.out.println("Vous êtes sur la case : " + currentPos);
+
+                c.getCase(currentPos, h).interact(h);
+
+                System.out.println("-------------------------------");
+                System.out.println("-------------------------------");
+                System.out.println("----------STATS PERSO----------");
+                System.out.println("Votre vie : " + h.getHp());
+                System.out.println("Votre Force : " + h.getStrength());
+                System.out.println("-------------------------------");
+                System.out.println("-------------------------------");
 
             } else {
                 Scanner rePlay = new Scanner(System.in);
@@ -57,6 +72,10 @@ public class Play {
         } else {
             return pos;
         }
+    }
+
+    public int getCurrentPos(int pos) {
+        return pos;
     }
 }
 

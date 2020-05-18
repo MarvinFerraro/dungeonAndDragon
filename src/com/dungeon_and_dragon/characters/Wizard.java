@@ -7,7 +7,7 @@ public class Wizard extends Hero {
     }
 
     public Wizard(String name) {
-        this(name, 5 ,5);
+        this(name, 5, 5);
     }
 
     public Wizard(String name, int hp, int strength) {
@@ -21,12 +21,13 @@ public class Wizard extends Hero {
 
     /**
      * toString
+     *
      * @return name, hp, strengh
      */
     public String toString() {
         return
                 "Nom du Magicien : " + this.name + " avec " +
-                        +this.hp + " points de vie et avec " + this.strength + " de force"+
+                        +this.hp + " points de vie et avec " + this.strength + " de force" +
                         " qui se bat avec " + rightHand + " et " + leftHand;
     }
 }

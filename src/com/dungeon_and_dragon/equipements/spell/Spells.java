@@ -1,13 +1,16 @@
 package com.dungeon_and_dragon.equipements.spell;
 
-public abstract class Spells {
+import com.dungeon_and_dragon.engine.BoardCase;
+import com.dungeon_and_dragon.engine.Event;
+
+public abstract class Spells implements Event {
 
     protected String name;
     protected int addStrength;
     protected String type;
 
     public Spells() {
-        this("Sort", 0,"Spells");
+        this("Sort", 0, "Spells");
     }
 
     public Spells(String name, int addStrength, String type) {
@@ -16,10 +19,10 @@ public abstract class Spells {
         this.type = "Spells";
     }
 
-    public String toString() {
-        return "Nom du sort : " + this.name +
-                "\n Augmentation du sort : " + this.addStrength + " d'attaque en plus.";
-    }
+//    public String toString() {
+//        return "Nom du sort : " + this.name +
+//                "\nAugmentation du sort : " + this.addStrength + " d'attaque en plus.";
+//    }
 
     /**
      * getName

@@ -63,7 +63,7 @@ public abstract class Hero {
      * setHp
      */
     public void setHp(int hp) {
-        if (hp <= this.lifeMin && hp >= this.lifeMax)
+        if (hp >= this.lifeMin && hp <= this.lifeMax)
         this.hp = hp;
         else if (hp < this.lifeMin)
             this.hp = this.lifeMin;

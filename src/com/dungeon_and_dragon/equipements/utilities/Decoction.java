@@ -1,8 +1,9 @@
 package com.dungeon_and_dragon.equipements.utilities;
 
-import com.dungeon_and_dragon.engine.Case;
+import com.dungeon_and_dragon.engine.BoardCase;
+import com.dungeon_and_dragon.engine.Event;
 
-public abstract class Decoction extends Case {
+public abstract class Decoction implements Event {
     protected String name;
     protected int addHp;
     protected String type;
@@ -17,10 +18,10 @@ public abstract class Decoction extends Case {
         this.type = type;
     }
 
-    public String toString() {
-        return "Nom de la décoction : " + this.name +
-                "\nNombre de PV rendu :" +this.addHp;
-    }
+//    public String toString() {
+//        return "Nom de la décoction : " + this.name +
+//                "\nNombre de PV rendu :" +this.addHp;
+//    }
 
     /**
      * getName
