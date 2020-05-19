@@ -48,6 +48,8 @@ public class Goblin extends Vilain implements Event {
                         System.out.println("Il vous reste : " + h.getHp() + " PV.");
                     } else {
                         System.out.println("Après une attaque fulgurante le gobelin vous à tué, SHAME ON YOU !");
+                        test = true;
+                        System.exit(0);
                     }
                 } else {
                     System.out.println("Voila une simple giffle suffisait.");
@@ -57,8 +59,10 @@ public class Goblin extends Vilain implements Event {
             } else {
                 int reverse = Play.randomNumber();
                 currentPos -= reverse;
-                h.setHp(h.getStrength() - this.strength);
-                System.out.println("LOOSER !!!! Vous avez instantanément perdu.");
+                h.setHp(h.getHp() - this.strength);
+                System.out.println("Vous reculez de : "+ reverse +
+                        "\nLOOSER !!!! Vous êtes maintenant sur la case : " + currentPos +
+                        "\nMais vous avez un pris coup en partant, il vous reste : " + h.getHp());
                 test = true;
             }
         }

@@ -9,35 +9,40 @@ import java.util.regex.*;
 public class Menu {
 
     public Hero choose() {
+        boolean isReady = false;
 
-        Scanner Charscanner = new Scanner(System.in);
-        System.out.print("Veuillez choisir votre Personnage (Guerrier / Magicien) : ");
-        String playerChoose = Charscanner.nextLine();
+        while (!isReady) {
+            Scanner Charscanner = new Scanner(System.in);
+            System.out.print("Veuillez choisir votre Personnage (Guerrier / Magicien) : ");
+            String playerChoose = Charscanner.nextLine();
 
-        switch (playerChoose) {
-            case "Guerrier":
-                System.out.println("Vous avez choisi le : " + playerChoose + " qui va casser des bouches");
-                Hero heroW = new Warrior();
-                createHero(heroW);
-                System.out.println(heroW.toString());
-                return heroW;
+            switch (playerChoose) {
+                case "Guerrier":
+                    System.out.println("Vous avez choisi le : " + playerChoose + " qui va casser des bouches");
+                    isReady = true;
+                    Hero heroW = new Warrior();
+                    createHero(heroW);
+                    System.out.println(heroW.toString());
+                    return heroW;
 
-            case "Magicien":
-                System.out.println("Vous avez choisi le : " + "'" + playerChoose + "'" + " descendant d'ElChapo");
-                Hero heroM = new Wizard();
-                createHero(heroM);
-                System.out.println(heroM.toString());
-                return heroM;
+                case "Magicien":
+                    System.out.println("Vous avez choisi le : " + "'" + playerChoose + "'" + " descendant d'ElChapo");
+                    isReady = true;
+                    Hero heroM = new Wizard();
+                    createHero(heroM);
+                    System.out.println(heroM.toString());
+                    return heroM;
 
-            case "Echap":
-                System.out.println("Vous avez quitté le jeu ! Noob");
-                System.exit(0);
-                break;
+                case "Echap":
+                    System.out.println("Vous avez quitté le jeu ! Noob");
+                    System.exit(0);
+                    isReady = true;
+                    break;
 
-            default:
-                System.out.println("Votre choix n'est pas possible.");
+                default:
+                    System.out.println("Votre choix n'est pas possible.");
+            }
         }
-
         return null;
     }
 
@@ -55,8 +60,8 @@ public class Menu {
         }
 
     }
-
     /**
+     *
      * @param hero
      * @return
      */

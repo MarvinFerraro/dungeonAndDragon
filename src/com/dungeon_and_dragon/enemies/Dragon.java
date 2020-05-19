@@ -53,6 +53,8 @@ public class Dragon extends Vilain implements Event {
                         System.out.println("Il vous reste : " + h.getHp() + " PV.");
                     } else {
                         System.out.println("Vous avez succombé au Dragon. YOU ARE NOT A DRAGON SLAYER !");
+                        test = true;
+                        System.exit(0);
                     }
 
                 } else {
@@ -63,8 +65,10 @@ public class Dragon extends Vilain implements Event {
             } else {
                 int reverse = Play.randomNumber();
                 currentPos -= reverse;
-                h.setHp(h.getStrength() - this.strength);
-                System.out.println("LOOSER !!!! Vous avez instantanément perdu.");
+                h.setHp(h.getHp() - this.strength);
+                System.out.println("Vous reculez de : "+ reverse +
+                        "\nLOOSER !!!! Vous êtes maintenant sur la case : " + currentPos +
+                        "\nMais vous avez pris un coup en partant, il vous reste : " + h.getHp());
                 test = true;
             }
         }

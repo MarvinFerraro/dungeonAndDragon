@@ -2,6 +2,7 @@ package com.dungeon_and_dragon.enemies;
 
 import com.dungeon_and_dragon.characters.Hero;
 import com.dungeon_and_dragon.engine.Event;
+import com.dungeon_and_dragon.engine.Menu;
 import com.dungeon_and_dragon.engine.Play;
 
 import javax.swing.plaf.synth.SynthMenuBarUI;
@@ -48,6 +49,8 @@ public class Necromancer extends Vilain implements Event {
                         System.out.println("Il vous reste : " + h.getHp() + " PV.");
                     } else {
                         System.out.println("T'es mort et le nécromancien commence à vous manger...");
+                        test = true;
+                        System.exit(0);
                     }
                 } else {
                     System.out.println("GG WP le nécromancien est retourné avec ces potes.");
@@ -57,8 +60,10 @@ public class Necromancer extends Vilain implements Event {
             } else {
                 int reverse = Play.randomNumber();
                 currentPos -= reverse;
-                h.setHp(h.getStrength() - this.strength);
-                System.out.println("LOOSER !!!! Vous avez instantanément perdu.");
+                h.setHp(h.getHp() - this.strength);
+                System.out.println("Vous reculez de : "+ reverse +
+                        "\nLOOSER !!!! Vous êtes maintenant sur la case : " + currentPos +
+                        "\nMais vous avez un pris coup en partant, il vous reste : " + h.getHp());
                 test = true;
             }
         }
