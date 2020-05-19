@@ -13,8 +13,11 @@ public class MinorHealthPotion extends Decoction implements Event {
         super(name, addHp, "PotionSmallHp");
     }
 
+    /**
+     * @param h
+     */
     @Override
-    public void interact(Hero h) {
+    public void interact(Hero h, int currentPos) {
         System.out.println("Entre le Whisky et le Pastis, vous trouvez une petite popo de vie.");
         h.setHp(h.getHp() + 2);
         System.out.println("\nVos points de vie : " + h.getHp());

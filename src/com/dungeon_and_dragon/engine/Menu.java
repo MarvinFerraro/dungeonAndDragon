@@ -1,6 +1,7 @@
 package com.dungeon_and_dragon.engine;
 
 import com.dungeon_and_dragon.characters.*;
+import org.w3c.dom.ls.LSOutput;
 
 import java.util.Scanner;
 import java.util.regex.*;
@@ -8,50 +9,57 @@ import java.util.regex.*;
 public class Menu {
 
     public Hero choose() {
-        boolean isReady = false;
 
-        while (!isReady) {
-            Scanner Charscanner = new Scanner(System.in);
-            System.out.print("Veuillez choisir votre Personnage (Guerrier / Magicien) : ");
-            String playerChoose = Charscanner.nextLine();
+        Scanner Charscanner = new Scanner(System.in);
+        System.out.print("Veuillez choisir votre Personnage (Guerrier / Magicien) : ");
+        String playerChoose = Charscanner.nextLine();
 
-            switch (playerChoose) {
-                case "Guerrier":
-                    System.out.println("Vous avez choisi le : " + playerChoose + " qui va casser des bouches");
-                    isReady = true;
-                    Hero heroW = new Warrior();
-                    createHero(heroW);
-                    System.out.println(heroW.toString());
-                    return heroW;
+        switch (playerChoose) {
+            case "Guerrier":
+                System.out.println("Vous avez choisi le : " + playerChoose + " qui va casser des bouches");
+                Hero heroW = new Warrior();
+                createHero(heroW);
+                System.out.println(heroW.toString());
+                return heroW;
 
-                case "Magicien":
-                    System.out.println("Vous avez choisi le : " + "'" + playerChoose + "'" + " descendant d'ElChapo");
-                    isReady = true;
-                    Hero heroM = new Wizard();
-                    createHero(heroM);
-                    System.out.println(heroM.toString());
-                    return heroM;
+            case "Magicien":
+                System.out.println("Vous avez choisi le : " + "'" + playerChoose + "'" + " descendant d'ElChapo");
+                Hero heroM = new Wizard();
+                createHero(heroM);
+                System.out.println(heroM.toString());
+                return heroM;
 
-                case "Echap":
-                    System.out.println("Vous avez quitté le jeu ! Noob");
-                    isReady = true;
-                    break;
+            case "Echap":
+                System.out.println("Vous avez quitté le jeu ! Noob");
+                System.exit(0);
+                break;
 
-                default:
-                    System.out.println("Votre choix n'est pas possible.");
-            }
-
-            if (isReady) {
-                Scanner startScanner = new Scanner(System.in);
-                System.out.print("Veuillez rentrer 'START' pour commencer : ");
-
-                String printStart = startScanner.nextLine().toUpperCase();
-                System.out.println("\nLe jeu à débuté");
-            }
+            default:
+                System.out.println("Votre choix n'est pas possible.");
         }
+
         return null;
     }
 
+    public static void exitgame() {
+        Scanner exit = new Scanner(System.in);
+        System.out.print("Vous êtes sur de vouloir quitter le jeux ? (oui)");
+        String exitString = exit.nextLine();
+
+        if (exitString.equals("oui")) {
+
+            System.exit(0);
+
+        } else {
+            System.out.println("Arrète de faire n'importe quoi par contre ! ");
+        }
+
+    }
+
+    /**
+     * @param hero
+     * @return
+     */
     public Hero createHero(Hero hero) {
         String type = hero.getType();
         Pattern pattern = Pattern.compile("[a-zA-Z]");

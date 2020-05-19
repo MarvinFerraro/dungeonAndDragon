@@ -9,6 +9,9 @@ public class Play {
 
     private final int board = 64;
 
+    /**
+     * @param h
+     */
     public void move(Hero h) {
         BoardCase c = new BoardCase();
         c.fill();
@@ -19,7 +22,7 @@ public class Play {
 
         while (!test) {
             Scanner play = new Scanner(System.in);
-            System.out.print("\nLancez le dé ? :");
+            System.out.print("\nLancez le dé ? : (o)");
             String playerChoose = play.nextLine();
 
             if (playerChoose.equals("o")) {
@@ -33,7 +36,7 @@ public class Play {
                 }
                 System.out.println("Vous êtes sur la case : " + currentPos);
 
-                c.getCase(currentPos, h).interact(h);
+                c.getCase(currentPos, h).interact(h, currentPos);
 
                 System.out.println("-------------------------------");
                 System.out.println("-------------------------------");
@@ -45,10 +48,12 @@ public class Play {
 
             } else {
                 Scanner rePlay = new Scanner(System.in);
-                System.out.print("Etes vous sur :");
+                System.out.print("Etes vous sur : (oui)");
                 String playerChoose2 = rePlay.nextLine();
                 if (playerChoose2.equals("oui")) {
+                    System.out.println("Vous avez quitté le jeu.");
                     test = true;
+                    System.exit(0);
                 }
             }
 
@@ -59,11 +64,21 @@ public class Play {
         }
     }
 
-    public int randomNumber() {
+    /**
+     * @return int random Number
+     */
+    public static int randomNumber() {
         int random_int = 1 + (int) (Math.random() * 6);
         return random_int;
     }
 
+    /**
+     * @param pos
+     * @param dice
+     * @param board
+     * @return
+     * @throws OutofBoardException
+     */
     public int testmove(int pos, int dice, int board) throws OutofBoardException {
         pos += dice;
 
@@ -72,10 +87,6 @@ public class Play {
         } else {
             return pos;
         }
-    }
-
-    public int getCurrentPos(int pos) {
-        return pos;
     }
 }
 

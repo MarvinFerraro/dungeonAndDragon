@@ -15,8 +15,11 @@ public class Sword extends Weapons implements Event {
         this.type = "Sword";
     }
 
+    /**
+     * @param h
+     */
     @Override
-    public void interact(Hero h) {
+    public void interact(Hero h, int currentPos) {
         if (h instanceof Warrior) {
             System.out.println("Oh une épée enfoncé dans le crane d'un Gobelin !Now we talking about WARRIOR ! ");
             h.setStrength(h.getStrength() + 5);

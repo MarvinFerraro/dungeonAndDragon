@@ -16,8 +16,11 @@ public class Club extends Weapons implements Event {
         this.type = "Club";
     }
 
+    /**
+     * @param h
+     */
     @Override
-    public void interact(Hero h) {
+    public void interact(Hero h, int currentPos) {
         if (h instanceof Warrior) {
             System.out.println("Vous trouvez une massue posée sur une table ! ");
             h.setStrength(h.getStrength() + 3);

@@ -9,7 +9,7 @@ public abstract class Decoction implements Event {
     protected String type;
 
     public Decoction() {
-        this("Potion" ,0,"Potion");
+        this("Potion", 0, "Potion");
     }
 
     public Decoction(String name, int addHp, String type) {

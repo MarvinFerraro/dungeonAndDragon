@@ -14,8 +14,11 @@ public class FireBall extends Spells implements Event {
         super(name, addStrength, "FireBall");
     }
 
+    /**
+     * @param h
+     */
     @Override
-    public void interact(Hero h) {
+    public void interact(Hero h, int currentPos) {
         if (h instanceof Warrior) {
             System.out.println("Vous trouvez un parchemin écrit en langue inconnu... ");
         } else {

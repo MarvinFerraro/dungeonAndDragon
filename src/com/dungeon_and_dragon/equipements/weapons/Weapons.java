@@ -10,7 +10,7 @@ public abstract class Weapons implements Event {
     protected String type;
 
     public Weapons() {
-        this("Arme",0,"Weapon");
+        this("Arme", 0, "Weapon");
     }
 
     public Weapons(String name, int addStrength, String type) {

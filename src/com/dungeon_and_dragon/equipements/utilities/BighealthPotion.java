@@ -18,8 +18,11 @@ public class BighealthPotion extends Decoction implements Event {
                 "\nNombre de PV rendu :" + this.addHp;
     }
 
+    /**
+     * @param h
+     */
     @Override
-    public void interact(Hero h) {
+    public void interact(Hero h, int currentPos) {
         System.out.println("LA PUTAIN DE BIG POPO CA FAIS ZIZIR ! PSERTEK ! ");
         h.setHp(h.getHp() + 5);
         System.out.println("\nVos points de vie : " + h.getHp());

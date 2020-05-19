@@ -12,6 +12,8 @@ import com.dungeon_and_dragon.equipements.weapons.Club;
 import com.dungeon_and_dragon.equipements.weapons.Sword;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.stream.IntStream;
 
 public class BoardCase {
@@ -38,6 +40,10 @@ public class BoardCase {
     ArrayList<Event> board = new ArrayList<>();
 
     public void fill() {
+
+        /** TODO Faire un system de shuffle ou de put random in ArrayList
+         *
+         */
 
         for (int i = 0; i < boardLimit; i++) {
             int c = i;
@@ -82,9 +88,23 @@ public class BoardCase {
                 board.add(new EmptyCase());
             }
         }
+        // Function de shuffle
+        shuffle(board);
     }
 
+    /**
+     * @param pos
+     * @param h
+     * @return
+     */
     public Event getCase(int pos, Hero h) {
         return board.get(pos);
+    }
+
+    /**
+     * @param array
+     */
+    public void shuffle(ArrayList array) {
+        Collections.shuffle(array);
     }
 }
