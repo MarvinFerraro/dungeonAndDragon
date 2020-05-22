@@ -12,7 +12,6 @@ public abstract class Hero {
 
     protected int lifeMin;
     protected int lifeMax;
-    protected int strengthMin;
     protected int strengthMax;
 
     public Hero() {
