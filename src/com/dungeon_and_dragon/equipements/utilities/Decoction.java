@@ -5,22 +5,22 @@ import com.dungeon_and_dragon.engine.Event;
 
 public abstract class Decoction implements Event {
     protected String name;
-    protected int addHp;
+    protected int addLife;
     protected String type;
 
     public Decoction() {
         this("Potion", 0, "Potion");
     }
 
-    public Decoction(String name, int addHp, String type) {
+    public Decoction(String name, int addLife, String type) {
         this.name = name;
-        this.addHp = addHp;
+        this.addLife = addLife;
         this.type = type;
     }
 
 //    public String toString() {
 //        return "Nom de la décoction : " + this.name +
-//                "\nNombre de PV rendu :" +this.addHp;
+//                "\nNombre de PV rendu :" +this.addLife;
 //    }
 
     /**
@@ -33,12 +33,12 @@ public abstract class Decoction implements Event {
     }
 
     /**
-     * getAddHp
+     * getaddLife
      *
-     * @return addHp
+     * @return addLife
      */
-    public int getAddHp() {
-        return addHp;
+    public int getaddLife() {
+        return addLife;
     }
 
     /**

@@ -1,7 +1,9 @@
 package com.dungeon_and_dragon.engine;
 
 import com.dungeon_and_dragon.characters.Hero;
+import com.dungeon_and_dragon.enemies.Vilain;
 import com.dungeon_and_dragon.exception.OutofBoardException;
+
 
 import java.util.Scanner;
 
@@ -10,7 +12,6 @@ public class Play {
     private final int board = 64;
 
     /**
-     *
      * @param h
      */
     public void move(Hero h) {
@@ -30,14 +31,16 @@ public class Play {
                 int throwDice = randomNumber();
                 System.out.println("\nVous avez fait un : " + throwDice);
 
-                try {
-                    currentPos = testmove(currentPos, throwDice, board);
-                } catch (OutofBoardException e) {
-                    e.printStackTrace();
-                }
-                System.out.println("Vous êtes sur la case : " + currentPos);
+//                try {
+//                    currentPos = testmove(currentPos, throwDice, board);
+//
+//                } catch (OutofBoardException e) {
+//                    e.printStackTrace();
+//                }
 
-                c.getCase(currentPos).interact(h, currentPos);
+                currentPos = moveTest(currentPos,throwDice,board);
+
+                c.getCase(currentPos).interact(h, currentPos, c);
 
                 System.out.println("-------------------------------");
                 System.out.println("-------------------------------");
@@ -57,7 +60,6 @@ public class Play {
                     System.exit(0);
                 }
             }
-
             if (currentPos == board) {
                 System.out.println("BRAVO GG FOR THE WIN !");
                 test = true;
@@ -88,22 +90,42 @@ public class Play {
     }
 
     /**
+     *
+     * @param pos
+     * @param dice
+     * @param board
+     * @return
+     */
+    public int moveTest(int pos, int dice, int board) {
+        pos += dice;
+
+        if (pos > board) {
+            System.out.println("Vous avez déplacé le plateau, retour a votre ancienne case.");
+            return pos;
+        } else if (pos <= 0) {
+            System.out.println("Vous avez trop reculé, à nouveau sur la case 1.");
+            return pos = 1;
+        } else {
+            System.out.println("Vous êtes sur la case : " + pos);
+            return pos;
+        }
+    }
+
+    /**
      * @param pos
      * @param dice
      * @param board
      * @return pos
      * @throws OutofBoardException
      */
-    public int testmove(int pos, int dice, int board) throws OutofBoardException {
-        pos += dice;
-
-        if (pos > board) {
-            throw new OutofBoardException();
-        } else {
-            return pos;
-        }
-    }
-
-
+//    public int testmove(int pos, int dice, int board) throws OutofBoardException {
+//        pos += dice;
+//
+//        if (pos > board) {
+//            throw new OutofBoardException();
+//        } else {
+//            return pos;
+//        }
+//    }
 }
 
