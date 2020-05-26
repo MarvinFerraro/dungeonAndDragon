@@ -6,7 +6,7 @@ import com.dungeon_and_dragon.engine.Play;
 
 import java.util.Scanner;
 
-public class Goblin extends Vilain implements Event {
+public class Goblin extends Vilain {
 
     public Goblin() {
         this("Gobeblin", 6, 1); //Appel le constructeur Goblin(full Parametre)
@@ -16,7 +16,7 @@ public class Goblin extends Vilain implements Event {
         super(name, hp, strength, "Goblin"); // Appel le constructeur parent
     }
 
-    /**
+    /** Method Who override the interact method in Interface Event
      * @param h
      */
     @Override

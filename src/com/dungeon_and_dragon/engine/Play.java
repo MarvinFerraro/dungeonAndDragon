@@ -10,6 +10,7 @@ public class Play {
     private final int board = 64;
 
     /**
+     *
      * @param h
      */
     public void move(Hero h) {
@@ -36,7 +37,7 @@ public class Play {
                 }
                 System.out.println("Vous êtes sur la case : " + currentPos);
 
-                c.getCase(currentPos, h).interact(h, currentPos);
+                c.getCase(currentPos).interact(h, currentPos);
 
                 System.out.println("-------------------------------");
                 System.out.println("-------------------------------");
@@ -65,6 +66,20 @@ public class Play {
     }
 
     /**
+     * @param currentPos
+     * @return
+     */
+    public static int reverse(int currentPos) {
+        int reverse = randomNumber();
+        currentPos -= randomNumber();
+        if (currentPos < 0) {
+            return currentPos = 0;
+        } else {
+            return currentPos;
+        }
+    }
+
+    /**
      * @return int random Number
      */
     public static int randomNumber() {
@@ -76,7 +91,7 @@ public class Play {
      * @param pos
      * @param dice
      * @param board
-     * @return
+     * @return pos
      * @throws OutofBoardException
      */
     public int testmove(int pos, int dice, int board) throws OutofBoardException {
@@ -88,5 +103,7 @@ public class Play {
             return pos;
         }
     }
+
+
 }
 

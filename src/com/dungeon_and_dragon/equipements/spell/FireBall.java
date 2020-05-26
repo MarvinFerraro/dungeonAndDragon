@@ -4,7 +4,7 @@ import com.dungeon_and_dragon.characters.Hero;
 import com.dungeon_and_dragon.characters.Warrior;
 import com.dungeon_and_dragon.engine.Event;
 
-public class FireBall extends Spells implements Event {
+public class FireBall extends Spells {
 
     public FireBall() {
         this("Boule de feu", 7);

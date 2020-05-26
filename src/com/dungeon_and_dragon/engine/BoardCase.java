@@ -1,6 +1,5 @@
 package com.dungeon_and_dragon.engine;
 
-import com.dungeon_and_dragon.characters.Hero;
 import com.dungeon_and_dragon.enemies.Dragon;
 import com.dungeon_and_dragon.enemies.Goblin;
 import com.dungeon_and_dragon.enemies.Necromancer;
@@ -41,46 +40,34 @@ public class BoardCase {
 
     public void fill() {
 
-        /** TODO Faire un system de shuffle ou de put random in ArrayList
-         *
-         */
-
         for (int i = 0; i < boardLimit; i++) {
             int c = i;
 
             if (IntStream.of(dragonPos).anyMatch(x -> x == c)) {
-//                System.out.println("Il y des dragons mamène en :" + c);
                 board.add(new Dragon());
 
             } else if (IntStream.of(necromancerPos).anyMatch(x -> x == c)) {
-//                System.out.println("Il y des nécromanciens mamène en :" + c);
                 board.add(new Necromancer());
 
             } else if (IntStream.of(goblin).anyMatch(x -> x == c)) {
                 board.add(new Goblin());
 
             } else if (IntStream.of(clubPos).anyMatch(x -> x == c)) {
-//                System.out.println("Une massue en :" + c);
                 board.add(new Club());
 
             } else if (IntStream.of(swordPos).anyMatch(x -> x == c)) {
-//                System.out.println("Une épée en :" + c);
                 board.add(new Sword());
 
             } else if (IntStream.of(lightningPos).anyMatch(x -> x == c)) {
-//                System.out.println("Un sort d'éclaire en :" + c);
                 board.add(new Lightning());
 
             } else if (IntStream.of(fireBallPos).anyMatch(x -> x == c)) {
-//                System.out.println("Un sort de Boule de feu en :" + c);
                 board.add(new FireBall());
 
             } else if (IntStream.of(minorHealthPos).anyMatch(x -> x == c)) {
-//                System.out.println("Une petite popo en :" + c);
                 board.add(new MinorHealthPotion());
 
             } else if (IntStream.of(bigHealthPos).anyMatch(x -> x == c)) {
-//                System.out.println("Une grosse popo en :" + c);
                 board.add(new BighealthPotion());
 
             } else {
@@ -94,10 +81,10 @@ public class BoardCase {
 
     /**
      * @param pos
-     * @param h
      * @return
      */
-    public Event getCase(int pos, Hero h) {
+    public Event getCase(int pos) {
+
         return board.get(pos);
     }
 

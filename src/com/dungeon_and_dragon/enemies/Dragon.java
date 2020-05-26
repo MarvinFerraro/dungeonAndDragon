@@ -7,7 +7,7 @@ import com.dungeon_and_dragon.engine.Play;
 
 import java.util.Scanner;
 
-public class Dragon extends Vilain implements Event {
+public class Dragon extends Vilain {
 
     public Dragon() {
         this("Dragon", 15, 4);
@@ -17,7 +17,7 @@ public class Dragon extends Vilain implements Event {
         super(name, hp, strength, "Dragon");
     }
 
-    /**
+    /** Method Who override the interact method in Interface Event
      * @param h
      */
     @Override
@@ -26,8 +26,6 @@ public class Dragon extends Vilain implements Event {
         System.out.println(toString());
 
 /** TODO : Faire un random sur le choix de qui commence le combat pour plus de difficulté.
- *
- *
  */
         boolean test = false;
 
@@ -63,11 +61,9 @@ public class Dragon extends Vilain implements Event {
                 }
                 turn++;
             } else {
-                int reverse = Play.randomNumber();
-                currentPos -= reverse;
+                currentPos = Play.reverse(currentPos);
                 h.setHp(h.getHp() - this.strength);
-                System.out.println("Vous reculez de : "+ reverse +
-                        "\nLOOSER !!!! Vous êtes maintenant sur la case : " + currentPos +
+                System.out.println("LOOSER !!!! Vous êtes maintenant sur la case : " + currentPos +
                         "\nMais vous avez pris un coup en partant, il vous reste : " + h.getHp());
                 test = true;
             }

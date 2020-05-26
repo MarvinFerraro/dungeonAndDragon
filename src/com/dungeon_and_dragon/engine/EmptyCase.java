@@ -16,6 +16,5 @@ public class EmptyCase implements Event {
         else
             System.out.println("Vous ouvrez une porte et vous tombez sur un mirroir..." +
                     "Vous voyez simplement le reflet de votre beau chapeau pointu ! Turlututu !");
-
     }
 }

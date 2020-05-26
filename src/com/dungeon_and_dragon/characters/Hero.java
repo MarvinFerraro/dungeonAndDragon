@@ -1,7 +1,5 @@
 package com.dungeon_and_dragon.characters;
 
-import java.util.regex.*;
-
 public abstract class Hero {
 
     protected String name;
@@ -29,9 +27,8 @@ public abstract class Hero {
         this.strength = strength;
     }
 
-
     /**
-     * getName
+     * Return a the String name of the object
      *
      * @return name
      */
@@ -40,10 +37,12 @@ public abstract class Hero {
     }
 
     /**
-     * setName
+     * Method take a String in param, for set the name attribute.
+     *
+     * @param name
      */
     public void setName(String name) {
-        if (name != null && !name.isEmpty()){
+        if (name != null && !name.isEmpty()) {
             this.name = name;
         } else {
             System.out.println("Pas de valeur nul!");
@@ -51,28 +50,30 @@ public abstract class Hero {
     }
 
     /**
-     * getHp
+     * Return a the Int hp of the object
      *
-     * @return hp
+     * @return Int hp
      */
     public int getHp() {
         return hp;
     }
 
     /**
-     * setHp
+     * Method take a Int in param, for set the hp (healthPoint) attribute.
+     *
+     * @param hp
      */
     public void setHp(int hp) {
         if (hp > 0 && hp <= this.lifeMax)
-        this.hp = hp;
-        else if (hp < 0)
+            this.hp = hp;
+        else if (hp <= 0)
             this.hp = 0;
         else
             this.hp = this.lifeMax;
     }
 
     /**
-     * getStrengh
+     * Return a the Int strength of the object
      *
      * @return strength
      */
@@ -81,31 +82,35 @@ public abstract class Hero {
     }
 
     /**
-     * setStrength
+     * Method take a int in param, for set the strength attribute.
+     *
+     * @param strength
      */
     public void setStrength(int strength) {
         if (strength >= this.strengthMin && strength <= this.strengthMax)
-        this.strength = strength;
+            this.strength = strength;
         else if (strength < this.strengthMin)
             this.strength = this.strengthMin;
         else
-            this.strength= this.strengthMax;
+            this.strength = this.strengthMax;
     }
 
     /**
-     * getLeftHand
+     * To get the String getLeftHand
      *
-     * @return leftHand
+     * @return String leftHand
      */
     public String getLeftHand() {
         return leftHand;
     }
 
     /**
-     * setLeftHand
+     * Method take a String in param, for set the setLeftHand attribute.
+     *
+     * @param leftHand
      */
     public void setLeftHand(String leftHand) {
-        if (name != null && !name.isEmpty()){
+        if (name != null && !name.isEmpty()) {
             this.leftHand = leftHand;
         } else {
             System.out.println("Pas de valeur nul!");
@@ -113,19 +118,21 @@ public abstract class Hero {
     }
 
     /**
-     * getRightHand
+     * To get the String getRightHand
      *
-     * @return rightHand
+     * @return String rightHand
      */
     public String getRightHand() {
         return rightHand;
     }
 
     /**
-     * setRightHand
+     * Method take a String in param, for set the setLeftHand attribute.
+     *
+     * @param rightHand
      */
     public void setRightHand(String rightHand) {
-        if (name != null && !name.isEmpty()){
+        if (name != null && !name.isEmpty()) {
             this.rightHand = rightHand;
         } else {
             System.out.println("Pas de valeur nul!");
@@ -133,45 +140,45 @@ public abstract class Hero {
     }
 
     /**
-     * getRightHand
+     * To get the String getRightHand
      *
-     * @return rightHand
+     * @return String rightHand
      */
     public String getType() {
         return type;
     }
 
     /**
-     * getLifeMin
+     * To get the int getLifeMin
      *
-     * @return lifeMin
+     * @return Int lifeMin
      */
     public int getLifeMin() {
         return lifeMin;
     }
 
     /**
-     * getLifeMax
+     * To get the int getLifeMax
      *
-     * @return lifeMax
+     * @return Int lifeMax
      */
     public int getLifeMax() {
         return lifeMax;
     }
 
     /**
-     * getStrengthMin
+     *  To get the int getStrengthMin
      *
-     * @return strengthMin
+     * @return Int strengthMin
      */
     public int getStrengthMin() {
         return strengthMin;
     }
 
     /**
-     * getStrengthMax
+     *  To get the int getStrengthMax
      *
-     * @return strengthMax
+     * @return Int strengthMax
      */
     public int getStrengthMax() {
         return strengthMax;

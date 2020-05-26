@@ -29,6 +29,5 @@ public class Warrior extends Hero {
                 "Nom du Guerrier : " + this.name + " avec " +
                         +this.hp + " points de vie et avec " + this.strength + " de force" +
                         " qui se bat avec " + rightHand + " et " + leftHand;
-
     }
 }

@@ -26,7 +26,7 @@ public class Club extends Weapons implements Event {
             h.setStrength(h.getStrength() + 3);
             System.out.println("\nForce augmentée de 3 ! Votre force est de : " + h.getStrength());
         } else {
-            System.out.println("Hélas vous ne pouvez pas vous servir de ça petit mage en robe.");
+            System.out.println("Une massue? Hélas vous ne pouvez pas vous servir de ça petit mage en robe.");
         }
 
     }

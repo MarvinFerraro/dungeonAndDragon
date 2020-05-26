@@ -8,7 +8,7 @@ import com.dungeon_and_dragon.engine.Play;
 import javax.swing.plaf.synth.SynthMenuBarUI;
 import java.util.Scanner;
 
-public class Necromancer extends Vilain implements Event {
+public class Necromancer extends Vilain {
 
     public Necromancer() {
         this("Nécromancien", 9, 2);
@@ -18,7 +18,7 @@ public class Necromancer extends Vilain implements Event {
         super(name, hp, strength, "Necromancer");
     }
 
-    /**
+    /** Method Who override the interact method in Interface Event
      * @param h
      */
     @Override

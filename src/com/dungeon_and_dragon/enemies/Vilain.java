@@ -9,11 +9,20 @@ public abstract class Vilain extends BoardCase implements Event {
     protected int hp, strength;
     protected String type;
 
+    /**
+     * Constructor with no param
+     */
     public Vilain() {
         this("Inconnu", 0, 0, "Vilain");
-
     }
 
+    /**
+     * The Constructor for the vilain. With all param !
+     * @param name
+     * @param hp
+     * @param strength
+     * @param type
+     */
     public Vilain(String name, int hp, int strength, String type) {
         this.name = name;
         this.hp = hp;
@@ -22,8 +31,7 @@ public abstract class Vilain extends BoardCase implements Event {
     }
 
     /**
-     * toString
-     *
+     * This method returns a String that defines the object
      * @return Object String
      */
     public String toString() {
@@ -31,7 +39,7 @@ public abstract class Vilain extends BoardCase implements Event {
     }
 
     /**
-     * getName
+     * Return a the String name of the object
      *
      * @return name
      */
@@ -40,7 +48,8 @@ public abstract class Vilain extends BoardCase implements Event {
     }
 
     /**
-     * setName
+     * Method take a String in param, for set the name attribute.
+     * @param name
      */
     public void setName(String name) {
         if (name != null && !name.isEmpty()) {
@@ -51,7 +60,7 @@ public abstract class Vilain extends BoardCase implements Event {
     }
 
     /**
-     * getHp
+     *  Return a the Int hp of the object
      *
      * @return hp
      */
@@ -60,14 +69,15 @@ public abstract class Vilain extends BoardCase implements Event {
     }
 
     /**
-     * setHp
+     * Method take a String in param, for set the hp attribute.
+     * @param hp
      */
     public void setHp(int hp) {
         this.hp = hp;
     }
 
     /**
-     * getStrengh
+     * Return a the Int strength of the object
      *
      * @return strength
      */
@@ -76,7 +86,8 @@ public abstract class Vilain extends BoardCase implements Event {
     }
 
     /**
-     * setStrength
+     * Method take a String in param, for set the strength attribute.
+     * @param strength
      */
     public void setStrength(int strength) {
         this.strength = strength;

@@ -22,7 +22,7 @@ public class Lightning extends Spells implements Event {
         if (h instanceof Warrior) {
             System.out.println("Vous trouvez un parchemin écrit en langue inconnu... ");
         } else {
-            System.out.println("Un sort d'éclair ! Zeux hear me !");
+            System.out.println("Un sort d'éclair ! Zeuz hear me !");
             h.setStrength(h.getStrength() + 2);
             System.out.println("\nForce augmentée de 2 !");
         }
