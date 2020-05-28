@@ -42,7 +42,6 @@ public abstract class Vilain extends BoardCase implements Event {
         return "Nom : " + this.name + "\nPoints de vie : " + this.hp + "\nForce d'attaque : " + this.strength;
     }
 
-
     /** Method Who override the interact method in Interface Event
      * @param h
      */
@@ -56,8 +55,8 @@ public abstract class Vilain extends BoardCase implements Event {
         } else {
             System.out.println("Aie, voila un dragon...");
         }
-        System.out.println(toString());
 
+        System.out.println(toString());
         boolean test = false;
 
         while (!test) {
@@ -78,8 +77,6 @@ public abstract class Vilain extends BoardCase implements Event {
                         System.out.println("Il vous reste : " + h.getHp() + " PV.");
                     } else {
                         System.out.println("Vous avez succombé. YOU ARE NOT A TRUE HERO!");
-                        test = true;
-                        System.exit(0);
                     }
                 } else {
                     System.out.println("WHAOU ! Quel héro !");
@@ -90,7 +87,13 @@ public abstract class Vilain extends BoardCase implements Event {
                 h.setHp(h.getHp() - this.strength);
                 System.out.println("LOOSER !!!! Vous êtes maintenant sur la case : " + currentPos +
                         "\nMais vous avez pris un coup en partant, il vous reste : " + h.getHp());
-                test = true;
+                if (h.getHp() <= 0 ) {
+                    System.out.println("Vous avez succombé. YOU ARE NOT A TRUE HERO!");
+                    test = true;
+                    System.exit(0);
+                } else {
+                    test = true;
+                }
             }
         }
     }

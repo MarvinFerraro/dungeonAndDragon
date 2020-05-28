@@ -4,29 +4,32 @@ import java.sql.*;
 
 public class Bdd {
 
-    public Bdd() {
-    }
+    private Connection connect;
+    private static Bdd bdd;
 
-    public void connectBdd() {
-
-        String connectionUrl =
-                "jdbc:sqlserver://localhost.database.windows.net:8080;"
-                        + "database=dungeon_dragon;"
-                        + "user=root;"
-                        + "password=;"
-                        + "encrypt=true;"
-                        + "trustServerCertificate=false;"
-                        + "loginTimeout=30;";
-
-        try (Connection connection = DriverManager.getConnection(connectionUrl);) {
-            System.out.println("Connect");
+    private Bdd() {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            System.out.println("Driver Ok");
+            this.connect = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/dungeon_dragon?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false","root","");
+            System.out.println("Connected");
         }
-        // Handle any errors that may have occurred.
-        catch (SQLException e) {
+        catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
+    public static Bdd getInstance() {
+        if (bdd == null) {
+            System.out.println("Instantiation de la connexion.");
+            bdd = new Bdd();
+        }
+        return bdd;
+    }
+
+    public Connection getConnect(){
+        return this.connect;
+    }
 
 }

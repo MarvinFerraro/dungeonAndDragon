@@ -2,6 +2,7 @@ package com.dungeon_and_dragon.engine;
 
 import com.dungeon_and_dragon.characters.Hero;
 import com.dungeon_and_dragon.enemies.Vilain;
+import com.dungeon_and_dragon.engine.bdd.CRUD;
 import com.dungeon_and_dragon.exception.OutofBoardException;
 
 
@@ -24,7 +25,7 @@ public class Play {
 
         while (!test) {
             Scanner play = new Scanner(System.in);
-            System.out.print("\nLancez le dé ? : (o)");
+            System.out.print("\nLancez le dé ? : (o) / ou Sauvegarder (Save)");
             String playerChoose = play.nextLine();
 
             if (playerChoose.equals("o")) {
@@ -38,8 +39,7 @@ public class Play {
 //                    e.printStackTrace();
 //                }
 
-                currentPos = moveTest(currentPos,throwDice,board);
-
+                currentPos = moveTest(currentPos, throwDice, board);
                 c.getCase(currentPos).interact(h, currentPos, c);
 
                 System.out.println("-------------------------------");
@@ -50,6 +50,9 @@ public class Play {
                 System.out.println("-------------------------------");
                 System.out.println("-------------------------------");
 
+            } else if (playerChoose.equals("Save")) {
+                CRUD crud = new CRUD();
+                crud.updateHero(h.getName(), h.getHp(), h.getStrength());
             } else {
                 Scanner rePlay = new Scanner(System.in);
                 System.out.print("Etes vous sur : (oui)");
@@ -61,6 +64,8 @@ public class Play {
                 }
             }
             if (currentPos == board) {
+                CRUD crud = new CRUD();
+                crud.updateHero(h.getName(), h.getHp(), h.getStrength());
                 System.out.println("BRAVO GG FOR THE WIN !");
                 test = true;
             }
@@ -90,7 +95,6 @@ public class Play {
     }
 
     /**
-     *
      * @param pos
      * @param dice
      * @param board

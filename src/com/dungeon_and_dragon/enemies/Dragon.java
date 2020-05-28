@@ -10,5 +10,4 @@ public class Dragon extends Vilain {
         super(name, hp, strength, "Dragon");
     }
 
-
 }

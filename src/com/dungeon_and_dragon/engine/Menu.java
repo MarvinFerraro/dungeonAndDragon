@@ -1,6 +1,7 @@
 package com.dungeon_and_dragon.engine;
 
 import com.dungeon_and_dragon.characters.*;
+import com.dungeon_and_dragon.engine.bdd.CRUD;
 
 import java.util.Scanner;
 import java.util.regex.*;
@@ -59,8 +60,8 @@ public class Menu {
         }
 
     }
+
     /**
-     *
      * @param hero
      * @return
      */
@@ -158,7 +159,6 @@ public class Menu {
                     System.out.println("Attribution de la force maximum : 10");
                     inputStrengthBool = true;
                 }
-
             } else {
                 Scanner inputStrength = new Scanner(System.in);
                 System.out.print("Rentrez sa force (8-15) : ");
@@ -180,40 +180,45 @@ public class Menu {
                 }
             }
         }
-
-        /*
-         * Set du RightHand
-         **/
-        boolean inputRightHandBool = false;
-        while (!inputRightHandBool) {
-            Scanner inputRightHand = new Scanner(System.in);
-            System.out.print("Rentrez une arme main droite : ");
-            String rightHandChoose = inputRightHand.nextLine();
 //
-//            if (Pattern.matches("[a-zA-z]", rightHandChoose)) {
-            hero.setRightHand(rightHandChoose);
-            inputRightHandBool = true;
-//            } else {
-//                System.out.print("Ce n'est pas une arme\n");
-//            }
-        }
+//        /*
+//         * Set du RightHand
+//         **/
+//        boolean inputRightHandBool = false;
+//        while (!inputRightHandBool) {
+//            Scanner inputRightHand = new Scanner(System.in);
+//            System.out.print("Rentrez une arme main droite : ");
+//            String rightHandChoose = inputRightHand.nextLine();
+////
+////            if (Pattern.matches("[a-zA-z]", rightHandChoose)) {
+//            hero.setRightHand(rightHandChoose);
+//            inputRightHandBool = true;
+////            } else {
+////                System.out.print("Ce n'est pas une arme\n");
+////            }
+//        }
+//
+//        /*
+//         * Set du inputLeftHand
+//         **/
+//        boolean inputLeftHandBool = false;
+//        while (!inputLeftHandBool) {
+//            Scanner inputLeftHand = new Scanner(System.in);
+//            System.out.print("Rentrez une arme main gauche : ");
+//            String leftHandChoose = inputLeftHand.nextLine();
+//
+////            if (Pattern.matches("[a-zA-z]", leftHandChoose)) {
+//            hero.setLeftHand(leftHandChoose);
+//            inputLeftHandBool = true;
+////            } else {
+////                System.out.print("Ce n'est pas une arme\n");
+////            }
+//        }
 
-        /*
-         * Set du inputLeftHand
-         **/
-        boolean inputLeftHandBool = false;
-        while (!inputLeftHandBool) {
-            Scanner inputLeftHand = new Scanner(System.in);
-            System.out.print("Rentrez une arme main gauche : ");
-            String leftHandChoose = inputLeftHand.nextLine();
+        //Sauvegarde en BDD du hero
+        CRUD crud = new CRUD();
+        crud.createHero(hero);
 
-//            if (Pattern.matches("[a-zA-z]", leftHandChoose)) {
-            hero.setLeftHand(leftHandChoose);
-            inputLeftHandBool = true;
-//            } else {
-//                System.out.print("Ce n'est pas une arme\n");
-//            }
-        }
         return hero;
     }
 }
