@@ -27,7 +27,6 @@ public class Wizard extends Hero {
     public String toString() {
         return
                 "Nom du Magicien : " + this.name + " avec " +
-                        +this.hp + " points de vie et avec " + this.strength + " de force" +
-                        " qui se bat avec " + rightHand + " et " + leftHand;
+                        +this.hp + " points de vie et avec " + this.strength + " de force";
     }
 }

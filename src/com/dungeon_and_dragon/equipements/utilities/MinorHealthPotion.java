@@ -1,8 +1,7 @@
 package com.dungeon_and_dragon.equipements.utilities;
 
 import com.dungeon_and_dragon.characters.Hero;
-import com.dungeon_and_dragon.engine.BoardCase;
-import com.dungeon_and_dragon.engine.Event;
+import com.dungeon_and_dragon.engine.BoardEngine.BoardCase;
 
 public class MinorHealthPotion extends Decoction {
 

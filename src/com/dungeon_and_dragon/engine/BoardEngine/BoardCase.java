@@ -1,4 +1,4 @@
-package com.dungeon_and_dragon.engine;
+package com.dungeon_and_dragon.engine.BoardEngine;
 
 import com.dungeon_and_dragon.enemies.Dragon;
 import com.dungeon_and_dragon.enemies.Goblin;
@@ -11,7 +11,6 @@ import com.dungeon_and_dragon.equipements.weapons.Club;
 import com.dungeon_and_dragon.equipements.weapons.Sword;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.stream.IntStream;
 

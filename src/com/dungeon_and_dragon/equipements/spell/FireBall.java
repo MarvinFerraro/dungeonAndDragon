@@ -2,8 +2,7 @@ package com.dungeon_and_dragon.equipements.spell;
 
 import com.dungeon_and_dragon.characters.Hero;
 import com.dungeon_and_dragon.characters.Warrior;
-import com.dungeon_and_dragon.engine.BoardCase;
-import com.dungeon_and_dragon.engine.Event;
+import com.dungeon_and_dragon.engine.BoardEngine.BoardCase;
 
 public class FireBall extends Spells {
 

@@ -2,7 +2,7 @@ com.dungeon_and_dragon
 com.dungeon_and_dragon.characters
 com.dungeon_and_dragon.enemies
 com.dungeon_and_dragon.engine
-com.dungeon_and_dragon.engine.bdd
+com.dungeon_and_dragon.engine.DbEngine
 com.dungeon_and_dragon.equipements.spell
 com.dungeon_and_dragon.equipements.utilities
 com.dungeon_and_dragon.equipements.weapons

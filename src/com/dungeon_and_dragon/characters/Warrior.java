@@ -27,7 +27,6 @@ public class Warrior extends Hero {
     public String toString() {
         return
                 "Nom du Guerrier : " + this.name + " avec " +
-                        +this.hp + " points de vie et avec " + this.strength + " de force" +
-                        " qui se bat avec " + rightHand + " et " + leftHand;
+                        +this.hp + " points de vie et avec " + this.strength + " de force";
     }
 }

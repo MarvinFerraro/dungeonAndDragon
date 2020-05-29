@@ -1,8 +1,6 @@
-package com.dungeon_and_dragon.engine;
+package com.dungeon_and_dragon.engine.BoardEngine;
 
 import com.dungeon_and_dragon.characters.Hero;
-
-import java.util.ArrayList;
 
 public interface Event {
 

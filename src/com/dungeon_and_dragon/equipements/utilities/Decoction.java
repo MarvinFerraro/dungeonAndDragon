@@ -1,7 +1,6 @@
 package com.dungeon_and_dragon.equipements.utilities;
 
-import com.dungeon_and_dragon.engine.BoardCase;
-import com.dungeon_and_dragon.engine.Event;
+import com.dungeon_and_dragon.engine.BoardEngine.Event;
 
 public abstract class Decoction implements Event {
     protected String name;

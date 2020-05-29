@@ -1,12 +1,12 @@
-package com.dungeon_and_dragon.engine;
+package com.dungeon_and_dragon.engine.MenuEngine;
 
 import com.dungeon_and_dragon.characters.*;
-import com.dungeon_and_dragon.engine.bdd.CRUD;
+import com.dungeon_and_dragon.engine.DbEngine.CRUD;
 
 import java.util.Scanner;
 import java.util.regex.*;
 
-public class Menu {
+public class CreateHero {
 
     public Hero choose() {
         boolean isReady = false;
@@ -21,7 +21,7 @@ public class Menu {
                     System.out.println("Vous avez choisi le : " + playerChoose + " qui va casser des bouches");
                     isReady = true;
                     Hero heroW = new Warrior();
-                    createHero(heroW);
+                    createNewHero(heroW);
                     System.out.println(heroW.toString());
                     return heroW;
 
@@ -29,7 +29,7 @@ public class Menu {
                     System.out.println("Vous avez choisi le : " + "'" + playerChoose + "'" + " descendant d'ElChapo");
                     isReady = true;
                     Hero heroM = new Wizard();
-                    createHero(heroM);
+                    createNewHero(heroM);
                     System.out.println(heroM.toString());
                     return heroM;
 
@@ -46,26 +46,11 @@ public class Menu {
         return null;
     }
 
-    public static void exitgame() {
-        Scanner exit = new Scanner(System.in);
-        System.out.print("Vous êtes sur de vouloir quitter le jeux ? (oui)");
-        String exitString = exit.nextLine();
-
-        if (exitString.equals("oui")) {
-
-            System.exit(0);
-
-        } else {
-            System.out.println("Arrète de faire n'importe quoi par contre ! ");
-        }
-
-    }
-
     /**
      * @param hero
      * @return
      */
-    public Hero createHero(Hero hero) {
+    public Hero createNewHero(Hero hero) {
         String type = hero.getType();
         Pattern pattern = Pattern.compile("[a-zA-Z]");
 
@@ -111,7 +96,6 @@ public class Menu {
                     System.out.println("Attribution de la vie maximum 5");
                     inputHpBool = true;
                 }
-
             } else {
                 Scanner inputHp = new Scanner(System.in);
                 System.out.print("Rentrez sa vie (3-6) : ");
@@ -215,10 +199,11 @@ public class Menu {
 ////            }
 //        }
 
-        //Sauvegarde en BDD du hero
+        // Sauvegarde en BDD du hero
         CRUD crud = new CRUD();
-        crud.createHero(hero);
+        crud.saveHero(hero);
 
         return hero;
     }
 }
+

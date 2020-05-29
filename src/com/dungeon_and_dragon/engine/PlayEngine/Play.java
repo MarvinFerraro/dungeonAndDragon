@@ -1,8 +1,10 @@
-package com.dungeon_and_dragon.engine;
+package com.dungeon_and_dragon.engine.PlayEngine;
 
 import com.dungeon_and_dragon.characters.Hero;
-import com.dungeon_and_dragon.enemies.Vilain;
-import com.dungeon_and_dragon.engine.bdd.CRUD;
+import com.dungeon_and_dragon.engine.BoardEngine.BoardCase;
+import com.dungeon_and_dragon.engine.DbEngine.CRUD;
+import com.dungeon_and_dragon.engine.MenuEngine.CreateHero;
+import com.dungeon_and_dragon.engine.MenuEngine.SuperMenu;
 import com.dungeon_and_dragon.exception.OutofBoardException;
 
 
@@ -12,20 +14,40 @@ public class Play {
 
     private final int board = 64;
 
-    /**
-     * @param h
-     */
-    public void move(Hero h) {
+    public BoardCase newBoard() {
         BoardCase c = new BoardCase();
         c.fill();
+        return c;
+    }
+
+
+    /**
+     * @param c
+     */
+    public void move(BoardCase c) {
+
+        Hero h = null;
 
         boolean test = false;
         int currentPos = 0;
-        System.out.println("Case de départ est de 0");
+        Scanner heroCreate = new Scanner(System.in);
+        System.out.println("Voulez vous créer (c) un hero ou choisir (e) un existant ?");
+        String choice = heroCreate.nextLine();
 
+        if (choice.equals("c")) {
+            h = heroStart();
+        } else if (choice.equals("e")) {
+            SuperMenu menu = new SuperMenu();
+            h = menu.takeExistingHero(h);
+        }
+
+        SuperMenu mainMenu = new SuperMenu();
+        mainMenu.menu(h, c);
+
+        System.out.println("Case de départ est de 0");
         while (!test) {
             Scanner play = new Scanner(System.in);
-            System.out.print("\nLancez le dé ? : (o) / ou Sauvegarder (Save)");
+            System.out.print("\nLancez le dé ? : (o) / ou Menu (menu)");
             String playerChoose = play.nextLine();
 
             if (playerChoose.equals("o")) {
@@ -38,7 +60,6 @@ public class Play {
 //                } catch (OutofBoardException e) {
 //                    e.printStackTrace();
 //                }
-
                 currentPos = moveTest(currentPos, throwDice, board);
                 c.getCase(currentPos).interact(h, currentPos, c);
 
@@ -50,22 +71,16 @@ public class Play {
                 System.out.println("-------------------------------");
                 System.out.println("-------------------------------");
 
-            } else if (playerChoose.equals("Save")) {
-                CRUD crud = new CRUD();
-                crud.updateHero(h.getName(), h.getHp(), h.getStrength());
+            } else if (playerChoose.equals("menu")) {
+                SuperMenu main = new SuperMenu();
+                main.menu(h, c);
             } else {
-                Scanner rePlay = new Scanner(System.in);
-                System.out.print("Etes vous sur : (oui)");
-                String playerChoose2 = rePlay.nextLine();
-                if (playerChoose2.equals("oui")) {
-                    System.out.println("Vous avez quitté le jeu.");
-                    test = true;
-                    System.exit(0);
-                }
+                System.out.println("Merci de rentrer o ou menu");
+
             }
             if (currentPos == board) {
                 CRUD crud = new CRUD();
-                crud.updateHero(h.getName(), h.getHp(), h.getStrength());
+                crud.updateHero(h);
                 System.out.println("BRAVO GG FOR THE WIN !");
                 test = true;
             }
@@ -114,6 +129,12 @@ public class Play {
             return pos;
         }
     }
+
+    public Hero heroStart() {
+        CreateHero newHero = new CreateHero();
+        return newHero.choose();
+    }
+
 
     /**
      * @param pos

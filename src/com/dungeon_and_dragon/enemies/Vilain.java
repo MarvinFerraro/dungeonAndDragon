@@ -1,9 +1,9 @@
 package com.dungeon_and_dragon.enemies;
 
 import com.dungeon_and_dragon.characters.Hero;
-import com.dungeon_and_dragon.engine.BoardCase;
-import com.dungeon_and_dragon.engine.Event;
-import com.dungeon_and_dragon.engine.Play;
+import com.dungeon_and_dragon.engine.BoardEngine.BoardCase;
+import com.dungeon_and_dragon.engine.BoardEngine.Event;
+import com.dungeon_and_dragon.engine.PlayEngine.Play;
 
 import java.util.Scanner;
 
@@ -77,6 +77,8 @@ public abstract class Vilain extends BoardCase implements Event {
                         System.out.println("Il vous reste : " + h.getHp() + " PV.");
                     } else {
                         System.out.println("Vous avez succombé. YOU ARE NOT A TRUE HERO!");
+                        test = true;
+                        System.exit(0);
                     }
                 } else {
                     System.out.println("WHAOU ! Quel héro !");
